@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,7 +12,7 @@ function App() {
 
     useEffect(() => {
         function buscarDados() {
-            fetch('http://api.negaodocinda.com.br/users')
+            fetch('https://api.negaodocinda.com.br/users')
                 .then(response => {
                     return response.json();
                 })

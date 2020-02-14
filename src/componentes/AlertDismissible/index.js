@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 
@@ -12,15 +12,14 @@ function AlertDismissible() {
                     <h1>Cadastros realizados</h1>
                 </Alert.Heading>
                 <p>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
-                    purus sit amet fermentum.
+                    Abaixo, todos os cadastros realizados por meio do site https://negaodocinda.com.br
                 </p>
                 <hr />
-                <div className="d-flex justify-content-end">
+                {/* <div className="d-flex justify-content-end">
                     <Button onClick={() => setShow(false)} variant="outline-success">
                         Close me ya'll!
                     </Button>
-                </div>
+                </div> */}
             </Alert>
 
             {!show && <Button onClick={() => setShow(true)}>Show Alert</Button>}
