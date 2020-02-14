@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+// import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import BarraNavegacao from './componentes/AppBar';
+import AlertDismissible from './componentes/AlertDismissible';
+import RenderData from './componentes/RenderData/';
+
 function App() {
-    const [user, setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         function buscarDados() {
@@ -17,58 +21,20 @@ function App() {
                     setUsers(result);
                 });
         }
-
         buscarDados();
     }, []);
 
     return (
         <Container>
-            <Row>
-                <Col>
-                    <h1>Cadastros realizados</h1>
+            <BarraNavegacao />
+            <Row style={{ marginTop: 70 }}>
+                <Col xs={12} md={12} lg={12} sm={12}>
+                    <AlertDismissible />
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <table border="" className="table" style={{ width: '100%', borderWidth: 1, borderColor: '#fff' }}>
-                        <thead>
-                            {user.length > 0 ? (
-                                <tr>
-                                    <th>NOME</th>
-                                    <th>EMAIL</th>
-                                    <th>WHATSAPP</th>
-                                </tr>
-                            ) : (
-                                <tr>
-                                    <th>NOME</th>
-                                    <th>EMAIL</th>
-                                    <th>WHATSAPP</th>
-                                </tr>
-                            )}
-                        </thead>
-
-                        <tbody>
-                            {user.length > 0 ? (
-                                <>
-                                    {user.map(({ id, username, email, whatsapp }, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td>{username}</td>
-                                                <td>{email}</td>
-                                                <td>{whatsapp}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </>
-                            ) : (
-                                <tr>
-                                    <td>...</td>
-                                    <td>...</td>
-                                    <td>...</td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                <RenderData data={users} />
                 </Col>
             </Row>
         </Container>
